@@ -15,17 +15,17 @@ int main()
 	GameCharacter Fusion("Landalk", 0, 0, 0, false);
 
 	
-	cout << "Warrior's Name: " << Warrior.getName << endl;;
-	cout << "Guardian's Defense points: " << Guardian.getDP << endl;
-	cout << "Mage's Attack Points: " << Mage.getAP << endl;
-	cout << "Warrior's Max health: " << Warrior.getMaxHealth << endl;
-	cout << "Guardian's current hit points: " << Guardian.getHp;
-	cout << "Is Mage alive?: " << Mage.getLife << endl;
+	cout << "Warrior's Name: " << Warrior.getName() << endl;;
+	cout << "Guardian's Defense points: " << Guardian.getDP() << endl;
+	cout << "Mage's Attack Points: " << Mage.getAP() << endl;
+	cout << "Warrior's Max health: " << Warrior.getMaxHealth() << endl;
+	cout << "Guardian's current hit points: " << Guardian.getHp();
+	cout << "Is Mage alive?: " << Mage.getLife() << endl;
 
 	cout << "First Round: Warrior Vs. Mage:" << endl
 	cout << "Warrior Attacks!" << end;
 	Warrior.attack(Mage);
-	cout << "Mage HP: " << Mage.getHp << endl;
+	cout << "Mage HP: " << Mage.getHp() << endl;
 	cout << "Does the Warrior have more health?" << endl;
 	cout << Warrior > Mage;
 		
@@ -45,8 +45,11 @@ int main()
 	cout << "Guardian attacks fusion" << endl;
 	Guardian.attack(Fusion);
 
-	cout << "Fusion HP: " << Fusion.getHP;
+	cout << "Fusion HP: " << Fusion.getHP();
 
 	Fusion.loadFromFile("FusionChar.txt");
+	
+	Fusion.displayDateTimeOfLastSave();
+	Fusion.displayTimeSinceLastSave();
 
 	return 0;

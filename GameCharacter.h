@@ -45,6 +45,7 @@ class GameCharacter
 		bool operator< (const GameCharacter& target);
 		friend ostream operator<< (ostream& os, const GameCharacter& PC);
 		void displayDateTimeOfLastSave();
+		void displayTimeSinceLastSave();
 };
 
 #endif

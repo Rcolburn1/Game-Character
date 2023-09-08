@@ -76,6 +76,7 @@ void GameCharacter::attack(GameCharacter& target)
 
 void GameCharacter::saveToFile(const string& filename)
 {
+	time_t now = time(0);
 	ofstream outfile(filename);
 
 	if(outfile.fail())
@@ -195,4 +196,38 @@ void GameCharacter::displayDateTimeOfLastSave()
 	char* dt = lastSaveTime;
 
 	cout << "Last saved on: " << dt << endl;
+}
+
+void GameCharacter::displayTimeSinceLastSave()
+{
+	time_t now = time(0);
+	double difference =  difftime (now,  lastSaveTime);
+	int years = 0;
+	int months = 0;
+	int days = 0; 
+	int hours = 0;
+	int minutes = 0;
+	int seconds = 0;
+
+	years = difference % 31536000;
+	difference = difference - (year * 31536000);
+	months = difference % 2628000;
+	difference = difference - (months * 262800);
+	days = difference % 86400;
+	difference = difference - (days * 86400);
+	hours = difference % 3600;
+	difference = difference - (hours  * 3600);
+	minutes = difference % 60;
+	difference = difference - (minutes * 60);
+	seconds = difference;
+
+	cout << "Time since last save:" << endl;
+	cout << years << " years" << endl;
+	cout << months << " months" << endl;
+	cout << days << " days" << endl;
+	cout << hours << " hours" << endl;
+	cout << mintues << " minutes" << endl;
+	cout << seconds << " seconds" << endl;
+
+
 }
