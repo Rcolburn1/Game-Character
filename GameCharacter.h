@@ -24,17 +24,18 @@ class GameCharacter
 		int atkPoints;
 		int defPoints;
 		bool isAlive;
-		time_t lastSaveTime; 
+		char* lastSaveTime;
+		time_t lastSaveTimeTime;
 
 
 	public:
 		GameCharacter(const string& charName, int maxHP, int  currentAtkPoints, int currentDefpoints, bool currentIsAlive);
-		void getName();
-		void getMaxHealth();
-		void getHP();
-		void getAP();
-		void getDP();
-		void getLife();
+		string getName() const;
+		int getMaxHealth() const;
+		int getHP() const;
+		int getAP() const;
+		int getDP() const;
+		bool getLife() const;
 		void takeDamage(int damage);
 		void attack(GameCharacter& target);
 		void saveToFile(const string& filename);

@@ -17,34 +17,34 @@ GameCharacter::GameCharacter(const string& charName, int maxHP, int currentAtkPo
 	isAlive = currentIsAlive;
 }
 
-void GameCharacter::getName()
+string GameCharacter::getName() const
 {
-	cout << name <<endl;
+	return name;
 }
 
-void GameCharacter::getMaxHealth()
+int GameCharacter::getMaxHealth() const
 {
-	cout << maxHealth << endl;
+	return maxHealth;
 }
 
-void GameCharacter::getHP()
+int GameCharacter::getHP() const
 {
-	cout << hitPoints << endl;
+	return hitPoints;
 }
 
-void GameCharacter::getAP()
+int GameCharacter::getAP() const
 {
-	cout << atkPoints << endl;
+	return atkPoints;
 }
 
-void GameCharacter::getDP()
+int GameCharacter::getDP() const
 {
-	cout << defPoints << endl;
+	return defPoints;
 }
 
-void GameCharacter::getLife()
+bool GameCharacter::getLife() const
 {
-	cout << isAlive << endl;
+	return isAlive;
 }
 
 void GameCharacter::takeDamage(int damage)
@@ -183,25 +183,19 @@ bool GameCharacter::operator<(const GameCharacter& target)
 
 ostream& operator<<(ostream& os, const GameCharacter& PC)
 {
-	os << "Name: " <<  PC.getName << endl;
-	os << "Max Health: " << PC.getMaxHealth << endl;
-	os << "Current Hit Points: " << PC.getHP << endl;
-	os << "Attak Points: " << PC.getAP << endl;
-	os << "Defense Points: " << PC.getDP << endl;
-	os << "Alive?: " << PC.getLife << endl;
+	return os << "Name: " <<  PC.getName() << endl << "Max Health: " << PC.getMaxHealth() << endl << "Current Hit Points: " << PC.getHP() << endl << "Attak Points: " << PC.getAP() << endl << "Defense Points: " << PC.getDP() << endl << "Alive?: " << PC.getLife() << endl;
+
 }
 
 void GameCharacter::displayDateTimeOfLastSave()
 {
-	char* dt = lastSaveTime;
-
-	cout << "Last saved on: " << dt << endl;
+	cout << "Last saved on: " << lastSaveTime << endl;
 }
 
 void GameCharacter::displayTimeSinceLastSave()
 {
 	time_t now = time(0);
-	double difference =  difftime (now,  lastSaveTime);
+	int difference = difftime (now,  lastSaveTimeTime);
 	int years = 0;
 	int months = 0;
 	int days = 0; 
@@ -210,7 +204,7 @@ void GameCharacter::displayTimeSinceLastSave()
 	int seconds = 0;
 
 	years = difference % 31536000;
-	difference = difference - (year * 31536000);
+	difference = difference - (years * 31536000);
 	months = difference % 2628000;
 	difference = difference - (months * 262800);
 	days = difference % 86400;
@@ -226,7 +220,7 @@ void GameCharacter::displayTimeSinceLastSave()
 	cout << months << " months" << endl;
 	cout << days << " days" << endl;
 	cout << hours << " hours" << endl;
-	cout << mintues << " minutes" << endl;
+	cout << minutes << " minutes" << endl;
 	cout << seconds << " seconds" << endl;
 
 
