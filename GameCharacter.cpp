@@ -91,6 +91,8 @@ void GameCharacter::saveToFile(const string& filename)
 	outfile << defPoints << endl;
 	outfile << isAlive << endl;
 
+	lastSaveTime = ctime(&now);
+
 	cout << "File Saved." << endl;
 }
 
@@ -188,3 +190,9 @@ ostream& operator<<(ostream& os, const GameCharacter& PC)
 	os << "Alive?: " << PC.getLife << endl;
 }
 
+void GameCharacter::displayDateTimeOfLastSave()
+{
+	char* dt = lastSaveTime;
+
+	cout << "Last saved on: " << dt << endl;
+}

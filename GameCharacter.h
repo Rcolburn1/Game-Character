@@ -10,6 +10,7 @@
 #include <string>
 #include <iomanip>
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -23,6 +24,8 @@ class GameCharacter
 		int atkPoints;
 		int defPoints;
 		bool isAlive;
+		time_t lastSaveTime; 
+
 
 	public:
 		GameCharacter(const string& charName, int maxHP, int  currentAtkPoints, int currentDefpoints, bool currentIsAlive);
@@ -41,6 +44,7 @@ class GameCharacter
 		bool operator> (const GameCharacter& target);
 		bool operator< (const GameCharacter& target);
 		friend ostream operator<< (ostream& os, const GameCharacter& PC);
+		void displayDateTimeOfLastSave();
 };
 
 #endif
