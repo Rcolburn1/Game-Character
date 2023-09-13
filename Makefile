@@ -8,4 +8,4 @@ game.o: game.cpp
 	c++ -c game.cpp
 
 clean:
-	rm *.o math
+	rm *.o Game
