@@ -140,7 +140,7 @@ void GameCharacter::operator=(const GameCharacter& target)
 	isAlive = target.isAlive;
 }
 
-void GameCharacter::operator+(const GameCharacter& partner)
+GameCharacter GameCharacter::operator+(const GameCharacter& partner)
 {
 	int newMaxHealth;
 	int newHitPoints;
@@ -148,11 +148,20 @@ void GameCharacter::operator+(const GameCharacter& partner)
 	int newDefPoints;
 	bool newIsAlive;
 
+	int uglyHPSet;
+
 	newMaxHealth = maxHealth + partner.maxHealth;
 	newHitPoints = (hitPoints + partner.hitPoints) / 2;
 	newAtkPoints = (atkPoints + partner.atkPoints) / 2;
 	newDefPoints = (defPoints + partner.defPoints) / 2;
 	newIsAlive = true;
+	uglyHPSet = (newMaxHealth - newHitPoints);
+
+	GameCharacter temp("temp", newMaxHealth, newAtkPoints, newDefPoints, newIsAlive);
+
+	temp.takeDamage(uglyHPSet);
+
+	return temp;
 }
 
 bool GameCharacter::operator>(const GameCharacter& target)
@@ -186,6 +195,7 @@ ostream& operator<<(ostream& os, const GameCharacter& PC)
 	return os << "Name: " <<  PC.getName() << endl << "Max Health: " << PC.getMaxHealth() << endl << "Current Hit Points: " << PC.getHP() << endl << "Attak Points: " << PC.getAP() << endl << "Defense Points: " << PC.getDP() << endl << "Alive?: " << PC.getLife() << endl;
 
 }
+
 
 void GameCharacter::displayDateTimeOfLastSave()
 {

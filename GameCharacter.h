@@ -16,6 +16,7 @@ using namespace std;
 
 class GameCharacter
 {
+	friend ostream& operator<< (ostream& os, const GameCharacter& PC);
 	//I'm sorry the original names hurt my soul, please forgive me.
 	private:
 		string name;
@@ -41,10 +42,9 @@ class GameCharacter
 		void saveToFile(const string& filename);
 		void loadFromFile(const string& filename);
 		void operator= (const GameCharacter& target);
-		void operator+ (const GameCharacter& partner);
+		GameCharacter operator+ (const GameCharacter& partner);
 		bool operator> (const GameCharacter& target);
 		bool operator< (const GameCharacter& target);
-		friend ostream operator<< (ostream& os, const GameCharacter& PC);
 		void displayDateTimeOfLastSave();
 		void displayTimeSinceLastSave();
 };

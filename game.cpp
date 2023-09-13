@@ -15,29 +15,29 @@ int main()
 	GameCharacter Fusion("Landalk", 0, 0, 0, false);
 
 	
-	cout << "Warrior's Name: " << Warrior.getName() << endl;;
+	cout << "Warrior's Name: " << Warrior.getName() << endl;
 	cout << "Guardian's Defense points: " << Guardian.getDP() << endl;
 	cout << "Mage's Attack Points: " << Mage.getAP() << endl;
 	cout << "Warrior's Max health: " << Warrior.getMaxHealth() << endl;
-	cout << "Guardian's current hit points: " << Guardian.getHp();
+	cout << "Guardian's current hit points: " << Guardian.getHP();
 	cout << "Is Mage alive?: " << Mage.getLife() << endl;
 
-	cout << "First Round: Warrior Vs. Mage:" << endl
-	cout << "Warrior Attacks!" << end;
+	cout << "First Round: Warrior Vs. Mage:" << endl;
+	cout << "Warrior Attacks!" << endl;
 	Warrior.attack(Mage);
-	cout << "Mage HP: " << Mage.getHp() << endl;
+	cout << "Mage HP: " << Mage.getHP() << endl;
 	cout << "Does the Warrior have more health?" << endl;
-	cout << Warrior > Mage;
+	cout << (Warrior > Mage);
 		
 	cout << "Second Round: Mage vs. Dummy:" << endl;
 	cout << "Mage Attacks Dummy!" << endl;
 	Mage.attack(Dummy);
 	cout << "Does the Dummy Have more health?" << endl;
-	cout << Mage < Dummy;
+	cout << (Mage < Dummy);
 
 	cout <<"Secret Technique: FUSION" << endl;
 	cout <<"Warrior is fusing with Mage!!!" << endl;
-	Fusion = Warrior + Mage;
+	Fusion = (Warrior + Mage);
 
 	cout << Fusion;
 
@@ -53,3 +53,4 @@ int main()
 	Fusion.displayTimeSinceLastSave();
 
 	return 0;
+}
